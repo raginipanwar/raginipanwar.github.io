@@ -1,0 +1,57 @@
+let inc_btn = document.getElementsByClassName('inc');
+let dec_btn = document.getElementsByClassName('dec');
+for(var i = 0; i < inc_btn.length; i++){
+    var button = inc_btn[i];
+    button.addEventListener('click', function(event){
+        var buttonClicked = event.target;
+        var input = buttonClicked.parentElement.children[2];
+        var inputValue = input.value;
+        var newValue = Number(inputValue) + 1;
+        input.value= newValue;
+    })
+
+}
+for(var i = 0; i < dec_btn.length; i++){
+    var button = dec_btn[i];
+    button.addEventListener('click', function(event){
+        var buttonClicked = event.target;
+        var input = buttonClicked.parentElement.children[2];
+        var inputValue = input.value;
+        var newValue = Number(inputValue) - 1;
+        if (newValue >= 0){
+            input.value= newValue;
+        }
+        else{
+            alert('Input value cannot be less than zero');
+        }
+    })
+}
+
+// page 8 modal review
+let popup = document.getElementById("popup");
+function openPopup(){
+    popup.classList.add("open-popup");
+}
+function closePopup(){
+    popup.classList.remove("open-popup");
+}
+const textarea = document.getElementById('textarea1');
+const btn = document.getElementById('btn2');
+textarea.value ='';
+btn.addEventListener('click', function handleClick(){
+    console.log(textarea.value);
+    textarea.value = '';
+});
+
+//page 6
+
+function loadDoc() {
+    const xhr = new XMLHttpRequest();
+    xhr.onload = function() {
+      document.getElementById("cont6").innerHTML =
+      xhr.responseText;
+    }
+    xhr.open("GET", "form.html");
+    xhr.send();
+  }
+
